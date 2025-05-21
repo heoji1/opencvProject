@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug OpenCV C++",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "PKG_CONFIG_PATH",
+                    "value": "/opt/homebrew/opt/opencv/lib/pkgconfig"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Build and Run OpenCV C++",
+            "stopAtEntry": false
+        }
+    ]
+}

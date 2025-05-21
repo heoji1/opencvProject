@@ -1,0 +1,20 @@
+Hough Transform에서 line segment 추정 방법(Pseudo code)
+
+입력: 이미지(image), rho의 단위 간격(d_rho), theta의 단위 간격(d_theta), 임계값(thr), 기준 거리(seg_dist)
+
+#1. 입력 이미지에 대한 모든 엣지 픽셀 (x,y)에 대해:
+	theta = 0 ~ π 까지 d_theta 간격으로 증가시키며:
+	rho = x*cos(theta) + y*sin(theta)
+	(rho, theta)에서의 엣지의 개수를 accumulator[rho, theta] 내에 누적
+
+#2. accumulator 내에서 thr 이상의 엣지 개수가 있는 (rho, theta) 쌍을 검출
+
+#3. 검출된 각 (rho, theta)에 대해:
+	해당 (rho, theta)에서의 모든 엣지 픽셀들에 중에서
+rho = x*cos(theta) + y*sin(theta)인 픽셀을 edges 배열 내에 저장
+	edges를 순차 정렬
+	edges를 순회하면서:
+	이전 픽셀과의 거리가 seg_dist 이상이면 이전 픽셀을 이전 선분의 끝점, 현재 선분을 새로운 선분의 시작점으로 설정
+	현재 선분의 시작점과 끝점을 리스트로 저장
+
+출력: 각 선분의 시작점과 끝점의 리스트

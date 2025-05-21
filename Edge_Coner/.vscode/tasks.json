@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run OpenCV C++",
+            "type": "shell",
+            "command": "/bin/zsh",
+            "args": [
+                "-c",
+                "/usr/bin/clang++ -std=c++17 -stdlib=libc++ -g ${file} -o ${fileDirname}/${fileBasenameNoExtension} -I/opt/homebrew/opt/opencv/include/opencv4 -L/opt/homebrew/opt/opencv/lib -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio && ${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [""],
+            "detail": "Compile and Run C++ file with OpenCV"
+        }
+    ]
+}

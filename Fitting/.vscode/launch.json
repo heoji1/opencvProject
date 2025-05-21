@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug OpenCV C++",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PKG_CONFIG_PATH": "/usr/local/lib/pkgconfig"
+            },
+            "preLaunchTask": "Build and Run OpenCV C++"
+        }
+    ]
+}
